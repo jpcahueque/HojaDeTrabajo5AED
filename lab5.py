@@ -1,6 +1,6 @@
 # Universidad del Valle de Guatemala
 #Jorge Tezen 15417
-#Juan Pablo Cahueque 15
+#Juan Pablo Cahueque 15396
 # Este codigo esta basado en ejemplos anteriores y de ejemplos en clase
 
 import simpy
@@ -11,7 +11,6 @@ memoria_ram= 100 #puede variar la cantidad de memoria
 numProcesos = 50   #el numero de procesos puede variar 
 tiempoT=0.0
 tiempos=[] 
-
 
 def proceso(env, tprocesos, nom, ram, ram_util, numInst, vel):
 
@@ -75,7 +74,6 @@ wait = simpy.Resource (env, capacity=2) #Wait para operaciones I/O
 interval = 10 #numero de intervalos (que va variando)
 random.seed(8976)
 
-
 #Ejecucion de la Simulacion
 for i in range(numProcesos):
     tprocesos = random.expovariate(1.0 / interval)
@@ -92,7 +90,6 @@ print ('El tiempo total de ejecucion es %f segundos' %(tiempoT))
 prom=(tiempoT/numProcesos)
 print('El tiempo promedio de los procesos es: %f segundos \n' % (prom))
 
-
 #calculo desviacion estandar
 sumatoria=0
 
@@ -101,5 +98,3 @@ for cont in tiempos:
 
 desv= math.sqrt(sumatoria/(numProcesos-1))
 print ('La desviacion estandar de los tiempos de los procesos ejecutados es: %f segundos' %(desv))
-
-
